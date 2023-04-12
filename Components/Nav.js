@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 // import { styled, useTheme, alpha } from '@mui/material/styles';
 // import { ColorModeContext } from '../public/theme'
 import { HiSearch } from 'react-icons/hi'
+import { useTheme } from 'next-themes'
+import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 // import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 // import LightModeIcon from '@mui/icons-material/LightMode';
 
@@ -17,9 +19,9 @@ import { HiSearch } from 'react-icons/hi'
 
 const navigation = [
     { name: 'About me', href: '/about', current: true },
-    { name: 'Team', href: '#', current: false },
+    { name: 'Team', href: '/', current: false },
     { name: 'Projects', href: '/projects', current: false },
-    { name: 'Cv', href: '#', current: false },
+    { name: 'Cv', href: '/', current: false },
 ]
 
 function classNames(...classes) {
@@ -28,10 +30,16 @@ function classNames(...classes) {
 
 
 function Nav() {
+    const { theme, setTheme } = useTheme('light');
+    // const currentTheme = theme === 'system' ? systemTheme : theme;
+    const [current, setCurrent] = useState("false")
+    const cuurentfunc = () => {
+        setCurrent(!current)
+    }
     // const colorMode = React.useContext(ColorModeContext);
     // const theme = useTheme();
     return (
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-gray-800 ">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -74,6 +82,8 @@ function Nav() {
                                                     'rounded-md px-3 py-2 text-sm font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
+                                                onClick={() => cuurentfunc()}
+
                                             >
                                                 {item.name}
                                             </a>
@@ -89,6 +99,7 @@ function Nav() {
                                     {/* <span className="sr-only">View notifications</span> */}
                                     <HiSearch className="h-6 w-6 mx-3" aria-hidden="true" />
                                 </button>
+                                {theme === 'dark' ? (<button onClick={() => setTheme('light')}><BsSunFill /></button>) : (<button onClick={() => setTheme('dark')}><BsMoonFill /></button>)}
                                 {/* <button sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
                                     {theme.palette.mode === 'dark' ? <LightModeIcon /> : <NightlightRoundIcon />}
                                 </button> */}
@@ -172,8 +183,9 @@ function Nav() {
                         </div>
                     </Disclosure.Panel>
                 </>
-            )}
-        </Disclosure>
+            )
+            }
+        </Disclosure >
     )
 }
 
