@@ -46,7 +46,7 @@ function Nav() {
     }
 
     return (
-        <Disclosure as="nav" className=" bg-white  dark:bg-gray-800  dark:drop-shadow-lg text-black dark:text-light drop-shadow-lg ">
+        <Disclosure as="nav" className="sticky top-0 bg-white  dark:bg-gray-800  dark:drop-shadow-lg text-black dark:text-light drop-shadow-lg ">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

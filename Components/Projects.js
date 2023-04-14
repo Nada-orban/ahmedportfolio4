@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function Projects() {
     return (
-        <div id="project" className='container mx-auto pt-10 pb-10 mt-10 mb-10 text-start'>
+        <div id="project" className='container mx-auto pt-10 pb-10 mt-10 mb-10 text-start px-5'>
             <div className='grid  grid-cols-1  sm:grid-cols-3  sm:grid-flow-col gap-4'>
                 <div>
                     <h1 className='font-bold  font-serif'>Projects</h1>

@@ -10,13 +10,13 @@ function about() {
     return (
         <div id="about" className='grid grid-cols-1 sm:grid-cols-3 sm:grid-flow-col gap-3 container mx-auto mt-10 mb-10 pb-10 dark:text-white '>
             <div className='text-center ' >
-                <div className='relative overflow-hidden mx-auto  border-2 border-rose-600 rounded-full w-64 bg-red h-64'>
+                <div className=' overflow-hidden mx-auto  border-2 border-rose-600 rounded-full w-64 bg-red h-64'>
                     <Image
                         src={ahmedimage}
                         alt="Picture of the author"
                         width={300}
                         height={300}
-                        className="absolute "
+
 
                     // blurDataURL="data:..." 
                     // placeholder="blur" // Optional blur-up while loading
