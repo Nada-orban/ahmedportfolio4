@@ -6,6 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { HiSearch } from 'react-icons/hi'
 import { useTheme } from 'next-themes'
 import { BsSunFill, BsMoonFill } from 'react-icons/bs'
+import { BiSearch } from 'react-icons/bi'
 // import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 // import LightModeIcon from '@mui/icons-material/LightMode';
 
@@ -18,10 +19,10 @@ import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 
 
 const navigation = [
-    { name: 'About me', href: '/about', current: true },
-    { name: 'Team', href: '/', current: false },
-    { name: 'Projects', href: '/projects', current: false },
-    { name: 'Cv', href: '/', current: false },
+    { name: 'About me', href: '#about', current: true },
+    { name: 'Skill', href: '#skill', current: true },
+    { name: 'Projects', href: '#project', current: false },
+    { name: 'Cv', href: '#cv', current: false },
 ]
 
 function classNames(...classes) {
@@ -45,7 +46,7 @@ function Nav() {
     }
 
     return (
-        <Disclosure as="nav" className=" bg-white  dark:bg-gray-800  text-black dark:text-light drop-shadow-lg ">
+        <Disclosure as="nav" className=" bg-white  dark:bg-gray-800  dark:drop-shadow-lg text-black dark:text-light drop-shadow-lg ">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -72,8 +73,8 @@ function Nav() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? ' text-Emerald-300 dark:text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white text-black dark:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                    item.current ? 'text-Emerald-300 dark:text-white ' : ' hover:bg-gray-700 hover:text-red text-black dark:text-white',
+                                                    'rounded-md px-3 py-2 text-lg font-medium '
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                                 onClick={() => cuurentfunc()}
@@ -85,14 +86,22 @@ function Nav() {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
-                                    type="search">
-                                    <HiSearch className="h-6 w-6 mx-3 " aria-hidden="true" style={{ color: "black" }} />
-                                </button>
+                                {theme === 'dark' ?
+                                    (<button
+                                        type="search">
+                                        <HiSearch className="h-6 w-6 mx-3 " aria-hidden="true" style={{ color: "white" }} />
+                                    </button>) : (
+                                        <button
+                                            type="search">
+                                            <HiSearch className="h-6 w-6 mx-3 " aria-hidden="true" style={{ color: "black" }} />
+                                        </button>
+                                    )
+                                }
+
                                 {theme === 'dark' ? (
                                     <button onClick={() => setTheme('light')} >
 
-                                        <BsSunFill style={{ color: "white" }} />
+                                        <BsSunFill style={{ color: "white", width: "20px" }} />
 
                                     </button>) :
                                     (<button onClick={() => setTheme('dark')} >
@@ -111,8 +120,8 @@ function Nav() {
                                     as="a"
                                     href={item.href}
                                     className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
+                                        item.current ? 'bg-gray-900 text-black dark:text-white ' : 'text-black dark:text-white hover:bg-gray-700 hover:text-white',
+                                        'block rounded-md px-3 py-2 text-white font-medium'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
@@ -130,60 +139,3 @@ function Nav() {
 
 export default Nav
 
-
-{/* Profile dropdown */ }
-{/* <Menu as="div" className="relative ml-3">
-
-                                    <div>
-                                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                            <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                            />
-                                        </Menu.Button>
-                                    </div>
-                                    <Transition
-                                        as={Fragment}
-                                        enter="transition ease-out duration-100"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-75"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Your Profile
-                                                    </a>
-                                                )}
-                                            </Menu.Item>
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Settings
-                                                    </a>
-                                                )}
-                                            </Menu.Item>
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Sign out
-                                                    </a>
-                                                )}
-                                            </Menu.Item>
-                                        </Menu.Items>
-                                    </Transition>
-                                </Menu> */}
