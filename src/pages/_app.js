@@ -1,9 +1,9 @@
 import '@/styles/globals.css'
 import Nav from '../../Components/Nav'
 import { ThemeProvider } from 'next-themes'
-import { Sofia_Sans_Condensed } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
-const sofia = Sofia_Sans_Condensed({
+const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900'],
   style: ['normal', 'italic'],
@@ -13,7 +13,7 @@ const sofia = Sofia_Sans_Condensed({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={sofia.className}>
+    <main className={montserrat.className}>
       <ThemeProvider enableSystam={true} attribute="class">
         <Nav />
         <Component {...pageProps} />

@@ -35,7 +35,7 @@ function about() {
             </div>
             <div className='sm:col-span-4 mt-5 px-5'>
                 <h1 className='font-bold font-serif'>About me</h1>
-                <p className='mt-3'>I am a social scientist focusing on applying informed decision making to health behaviors (e.g., sexual and mental health) and behaviors related to societal issues (e.g., climate change). My research mainly focuses on understanding how informed decision making relates to behavior (change) and optimizing digital decision aids. In addition, I also research how online and offline communication can influence (informed) decision-making processes and behavior and I have expertise in developing digital decision aids. With my research I try to help people when it comes to issues related to their health, but also other societal issues.</p>
+                <h5 className='mt-3'>I am a social scientist focusing on applying informed decision making to health behaviors (e.g., sexual and mental health) and behaviors related to societal issues (e.g., climate change). My research mainly focuses on understanding how informed decision making relates to behavior (change) and optimizing digital decision aids. In addition, I also research how online and offline communication can influence (informed) decision-making processes and behavior and I have expertise in developing digital decision aids. With my research I try to help people when it comes to issues related to their health, but also other societal issues.</h5>
             </div>
         </div>
     )
