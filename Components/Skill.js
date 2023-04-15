@@ -4,7 +4,7 @@ import { FaLanguage } from 'react-icons/fa'
 
 function Skill() {
     return (
-        <div id="skill" className='container mx-auto pt-10 pb-10 mt-10 mb-10 text-center'>
+        <div id="skill" className='container mx-auto pt-10 pb-10 mt-10 mb-10 text-center px-5'>
             <h1 className='font-bold mb-10 pb-10 font-serif'>Skills</h1>
             <div className='grid   grid-cols-1 sm:grid-cols-2 sm:grid-flow-col gap-4 mb-10 pb-10'>
                 <div className='flex  flex-col  justify-center items-center mx-auto  '>

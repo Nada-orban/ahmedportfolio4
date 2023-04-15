@@ -32,10 +32,10 @@ function classNames(...classes) {
 
 function Nav() {
     const { theme, setTheme } = useTheme('light');
-    const [current, setCurrent] = useState("false");
+    const [active, setActive] = useState("false");
     const [mounted, setMounted] = useState(false);
-    const cuurentfunc = () => {
-        setCurrent(!current)
+    const activefunc = () => {
+        setActive(!active)
     }
 
     useEffect(() => {
@@ -46,7 +46,7 @@ function Nav() {
     }
 
     return (
-        <Disclosure as="nav" className="sticky top-0 bg-white  dark:bg-gray-800  dark:drop-shadow-lg text-black dark:text-light drop-shadow-lg ">
+        <Disclosure as="nav" className="sticky top-0   bg-white  dark:bg-gray-800  dark:shadow-lg  dark:shadow-slate-500/40  text-black dark:text-light drop-shadow-lg ">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -68,20 +68,35 @@ function Nav() {
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
-                                        {navigation.map((item) => (
-                                            <a
-                                                key={item.name}
-                                                href={item.href}
-                                                className={classNames(
-                                                    item.current ? 'text-Emerald-300 dark:text-white ' : ' hover:bg-gray-700 hover:text-red text-black dark:text-white',
-                                                    'rounded-md px-3 py-2 text-lg font-medium '
-                                                )}
-                                                aria-current={item.current ? 'page' : undefined}
-                                                onClick={() => cuurentfunc()}
-                                            >
-                                                {item.name}
-                                            </a>
-                                        ))}
+                                        <a
+                                            key='about'
+                                            href='#'
+                                            className="text-black dark:text-white hover:text-cyan-600  active:bg-red-700 "
+                                        >
+                                            About me
+                                        </a>
+                                        <a
+                                            key='skill'
+                                            href='#skill'
+                                            className="text-black dark:text-white hover:text-cyan-600  active:bg-violet-700 "
+                                        >
+                                            Skills
+                                        </a>
+                                        <a
+                                            key='project'
+                                            href='#project'
+                                            className="text-black dark:text-white hover:text-cyan-600 focus:text-cyan-600  active:bg-violet-700 "
+                                        >
+                                            Projects
+                                        </a>
+                                        <a
+                                            key='cv'
+                                            href='#cv'
+                                            className="text-black dark:text-white hover:text-cyan-600 focus:text-cyan-600  active:bg-violet-700 "
+                                        >
+                                            Cv
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
@@ -113,16 +128,17 @@ function Nav() {
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">
-                        <div className="space-y-1 px-2 pb-3 pt-2">
+                        <div className="space-y-1 px-5 pb-3 pt-2 flex flex-col gap-2 ">
                             {navigation.map((item) => (
                                 <Disclosure.Button
                                     key={item.name}
                                     as="a"
                                     href={item.href}
-                                    className={classNames(
-                                        item.current ? 'bg-gray-900 text-black dark:text-white ' : 'text-black dark:text-white hover:bg-gray-700 hover:text-white',
-                                        'block rounded-md px-3 py-2 text-white font-medium'
-                                    )}
+                                    // className={classNames(
+                                    //     item.current ? 'bg-gray-900 text-black dark:text-white ' : 'text-black dark:text-white hover:bg-gray-700 hover:text-white',
+                                    //     'block rounded-md px-3 py-2 text-white font-medium'
+                                    // )}
+                                    className='text-black dark:text-white'
                                     aria-current={item.current ? 'page' : undefined}
                                 >
                                     {item.name}
