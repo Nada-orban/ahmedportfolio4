@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import Nav2 from '../../Components/Nav2'
+import Nav from '../../Components/Nav'
 import { ThemeProvider } from 'next-themes'
 import { Montserrat } from 'next/font/google'
 
@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
   return (
     <main className={montserrat.className}>
       <ThemeProvider enableSystam={true} attribute="class">
-        <Nav2 />
+        <Nav />
         <Component {...pageProps} />
         {/* <style jsx global>{`
                   ${theme.palette.mode === 'dark' ? "body{background:#1c1d24} " : "body{background: #fff} "}`

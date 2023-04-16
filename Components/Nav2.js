@@ -22,8 +22,8 @@ function Nav2() {
         return null
     }
     return (
-        <div className=' w-full  p-1 bg-white  dark:bg-gray-800  dark:shadow-lg  dark:shadow-slate-500/40  text-black dark:text-light drop-shadow-lg'>
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className='sticky top-0  w-full  p-1 bg-white  dark:bg-gray-800  dark:shadow-lg  dark:shadow-slate-500/40  text-black dark:text-light drop-shadow-lg'>
+            <div className="mx-auto  px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         {/* Mobile menu button*/}
@@ -104,7 +104,7 @@ function Nav2() {
                 </div>
             </div>
             {open && (
-                <div className='z-10 sm:hidden top-[60px] p-5 bg-white w-full h-50'>
+                <div className=' sm:hidden top-[60px] p-5 bg-white w-full h-50'>
                     <div className="flex flex-col ">
                         <a
                             key='about'

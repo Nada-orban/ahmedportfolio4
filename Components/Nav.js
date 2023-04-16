@@ -7,6 +7,7 @@ import { HiSearch } from 'react-icons/hi'
 import { useTheme } from 'next-themes'
 import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 import { BiSearch } from 'react-icons/bi'
+import Link from 'next/link'
 // import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 // import LightModeIcon from '@mui/icons-material/LightMode';
 
@@ -19,10 +20,10 @@ import { BiSearch } from 'react-icons/bi'
 
 
 const navigation = [
-    { name: 'About me', href: '#about', current: true },
-    { name: 'Skill', href: '#skill', current: true },
-    { name: 'Projects', href: '#project', current: false },
-    { name: 'Cv', href: '#cv', current: false },
+    { name: 'About me', href: '/#', current: true },
+    { name: 'Skill', href: '/#skill', current: true },
+    { name: 'Projects', href: '/#project', current: false },
+    { name: 'Cv', href: '/#cv', current: false },
 ]
 
 function classNames(...classes) {
@@ -64,38 +65,38 @@ function Nav() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <h1 className="block h-8 w-auto lg:hidden font-bold text-lg">Ahmed  Adel Attia</h1>
+                                    <h1 className="block h-8 w-auto lg:hidden font-bold text-lg dark:text-white">Ahmed  Adel Attia</h1>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
-                                        <a
+                                        <Link
                                             key='about'
-                                            href='#'
+                                            href='/#'
                                             className="text-black dark:text-white hover:text-cyan-600  active:bg-red-700 "
                                         >
                                             About me
-                                        </a>
-                                        <a
+                                        </Link>
+                                        <Link
                                             key='skill'
-                                            href='#skill'
+                                            href='/#skill'
                                             className="text-black dark:text-white hover:text-cyan-600  active:bg-violet-700 "
                                         >
                                             Skills
-                                        </a>
-                                        <a
+                                        </Link>
+                                        <Link
                                             key='project'
-                                            href='#project'
+                                            href='/#project'
                                             className="text-black dark:text-white hover:text-cyan-600 focus:text-cyan-600  active:bg-violet-700 "
                                         >
                                             Projects
-                                        </a>
-                                        <a
+                                        </Link>
+                                        <Link
                                             key='cv'
-                                            href='#cv'
+                                            href='/#cv'
                                             className="text-black dark:text-white hover:text-cyan-600 focus:text-cyan-600  active:bg-violet-700 "
                                         >
                                             Cv
-                                        </a>
+                                        </Link>
 
                                     </div>
                                 </div>
@@ -132,7 +133,7 @@ function Nav() {
                             {navigation.map((item) => (
                                 <Disclosure.Button
                                     key={item.name}
-                                    as="a"
+                                    as="Link"
                                     href={item.href}
                                     // className={classNames(
                                     //     item.current ? 'bg-gray-900 text-black dark:text-white ' : 'text-black dark:text-white hover:bg-gray-700 hover:text-white',

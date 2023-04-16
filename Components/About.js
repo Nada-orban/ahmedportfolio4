@@ -8,7 +8,7 @@ import ahmedimage from '../public/images/DSC_007900.jpg'
 
 function about() {
     return (
-        <div id="about" className='grid grid-cols-1 sm:grid-cols-3 sm:grid-flow-col gap-3 container mx-auto mt-10 mb-10 pb-10 dark:text-white '>
+        <div id="about" className='grid grid-cols-1  sm:h-screen sm:grid-cols-3 sm:grid-flow-col gap-3 container mx-auto mt-10 mb-10 pb-10 dark:text-white '>
             <div className='text-center ' >
                 <div className=' overflow-hidden mx-auto  border-2 border-rose-600 rounded-full w-64 bg-red h-64'>
                     <Image
