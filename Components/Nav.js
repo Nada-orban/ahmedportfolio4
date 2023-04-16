@@ -129,11 +129,11 @@ function Nav() {
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">
-                        <div className="space-y-1 px-5 pb-3 pt-2 flex flex-col gap-2 ">
+                        <div className="space-y-1 px-5 pb-3 pt-2 flex flex-col gap-2  ">
                             {navigation.map((item) => (
                                 <Disclosure.Button
                                     key={item.name}
-                                    as="Link"
+                                    as="a"
                                     href={item.href}
                                     // className={classNames(
                                     //     item.current ? 'bg-gray-900 text-black dark:text-white ' : 'text-black dark:text-white hover:bg-gray-700 hover:text-white',
