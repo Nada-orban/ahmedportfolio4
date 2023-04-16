@@ -24,7 +24,7 @@ function about() {
                 </div>
 
                 <div>
-                    <h1 className='font-bold font-serif '>Thomas Gültzow</h1>
+                    <h1 className='font-bold font-serif '>Ahmed Adel Attia</h1>
                     <p className='mt-3 text-base'>Assistant Professor Social Psychology</p>
                     <h3 className='text-lg'><Link href="/">Maastricht University</Link></h3>
                 </div>
