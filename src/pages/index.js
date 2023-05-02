@@ -3,14 +3,15 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import About from '../../Components/About'
 import Skill from '../../Components/Skill'
-import Projects from '../../Components/Projects'
+import Project from '../../Components/Project'
 import { BsGithub } from 'react-icons/bs'
 import { BsFillFileEarmarkPdfFill } from 'react-icons/bs'
 import Link from 'next/link'
+import { projectsdata } from '../../data'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home(props) {
+export default function Home({ projects }) {
   return (
     <>
       <Head>
@@ -37,35 +38,9 @@ export default function Home(props) {
               <h1 className='font-bold  font-serif'>Projects</h1>
             </div>
             <div className='flex flex-col col-span-2 gap-4  pt-5'>
-              {props.posts.map(post => (
-                <Link href={`/${post.id}`} key={post.id}>
+              {projects.map(project => (
+                <Project key={project.id} {...project} />
 
-                  <div className='text-start mt-2'>
-                    <h2 className='font-bold text-2xl font-bold  text-cyan-600 hover:underline cursor-pointer'>{post.title}</h2>
-                    <p className='text-base'>{post.body}</p>
-                    <div className='flex flex-row gap-2 mt-5'>
-                      <Link href={`${post.pdf}`}>
-                        <button className='relative  rounded-lg border border-cyan-600 p-1 px-2  flex flex-row gap-1 '>
-                          <BsFillFileEarmarkPdfFill style={{ color: "#0891b2" }} className='hover:color-white' />
-                          <h6 className='text-cyan-600 text-xs'>PDF</h6>
-                        </button>
-                      </Link>
-                      <Link href={`${post.code}`}>
-                        <button className='relative  rounded-lg border border-cyan-600 p-1 px-2 flex flex-row gap-1  '>
-                          <BsGithub style={{ color: "#0891b2" }} />
-                          <h6 className='text-cyan-600 text-xs'>Code</h6>
-                        </button>
-                      </Link>
-                      <Link href={`${post.poster}`}>
-                        <button className='relative  rounded-lg border border-cyan-600 p-1  px-2 flex flex-row gap-1  '>
-
-                          <h6 className='text-cyan-600 text-xs'>Poster</h6>
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-
-                </Link>
               ))}
             </div>
           </div>
@@ -83,12 +58,12 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=2");
-  const data = await res.json();
+  // const res = await fetch("data.projects?_limit=2");
+  // const data = await res.json();
 
   return {
     props: {
-      posts: data
+      projects: projectsdata,
     }
   }
 }
